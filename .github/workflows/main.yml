@@ -13,7 +13,7 @@ env:
 
 jobs:
   linux-debug:
-    name: Linux Debug
+    name: Linux Debugs
     runs-on: ubuntu-20.04
 
     env:
