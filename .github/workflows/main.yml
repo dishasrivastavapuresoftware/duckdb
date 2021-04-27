@@ -708,6 +708,7 @@ jobs:
       run: pip install cibuildwheel twine
 
     - name: Build
+      if: ${{ matrix.arch == 'auto' }}
       run: |
         cd tools/pythonpkg
         python setup.py sdist
