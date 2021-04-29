@@ -118,12 +118,14 @@ jobs:
       run: |
         cd tools/pythonpkg
         if [ $CIBW_ARCHS_LINUX == 'auto' ]; then 
-           echo "inside auto";
-           python setup.py sdist;
-           mkdir duckdb_tarball && tar xvf dist/duckdb-*.tar.gz --strip-components=1 -C duckdb_tarball;
-           cibuildwheel --output-dir wheelhouse duckdb_tarball;
+           echo "inside auto"
+           pwd
+           python setup.py sdist
+           mkdir duckdb_tarball && tar xvf dist/duckdb-*.tar.gz --strip-components=1 -C duckdb_tarball
+           cibuildwheel --output-dir wheelhouse duckdb_tarball
         else
-           cibuildwheel --output-dir wheelhouse
+           pwd
+           cibuildwheel --output-dir wheelhouse .
         fi
         
 
