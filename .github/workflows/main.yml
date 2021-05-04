@@ -97,6 +97,7 @@ jobs:
       CIBW_TEST_COMMAND: 'python -m pytest {project}/tests'
       SETUPTOOLS_SCM_NO_LOCAL: 'yes'
       TWINE_USERNAME: 'hfmuehleisen'
+      arch: ${{ matrix.arch }}
 
     steps:
     - uses: actions/checkout@v2
@@ -120,8 +121,9 @@ jobs:
         python setup.py sdist
         mkdir duckdb_tarball && tar xvf dist/duckdb-*.tar.gz --strip-components=1 -C duckdb_tarball
         cibuildwheel --output-dir wheelhouse duckdb_tarball
-        if [ $CIBW_ARCHS_LINUX == 'aarch64' ]; then 
+        if [ $arch == 'aarch64' ]; then
           echo "#########################inside arch64################################################"
+          echo $arch
           rm -rf dist/duckdb-*.tar.gz
         fi
         
