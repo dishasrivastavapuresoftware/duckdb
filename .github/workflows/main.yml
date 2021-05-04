@@ -117,10 +117,11 @@ jobs:
     - name: Build
       run: |
         cd tools/pythonpkg
-        python setup.py sdist;
-        mkdir duckdb_tarball && tar xvf dist/duckdb-*.tar.gz --strip-components=1 -C duckdb_tarball;
-        cibuildwheel --output-dir wheelhouse duckdb_tarball;
+        python setup.py sdist
+        mkdir duckdb_tarball && tar xvf dist/duckdb-*.tar.gz --strip-components=1 -C duckdb_tarball
+        cibuildwheel --output-dir wheelhouse duckdb_tarball
         if [ $CIBW_ARCHS_LINUX == 'aarch64' ]; then 
+          echo "#########################inside arch64################################################"
           rm -rf dist/duckdb-*.tar.gz
         fi
         
