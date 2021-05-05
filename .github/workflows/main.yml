@@ -128,6 +128,12 @@ jobs:
           echo $arch
           rm -rf dist/duckdb-*.tar.gz
         fi
+    
+    - name: Remove dist for aarc64
+      if: ${{ matrix.arch == 'aarch64' }}
+      run: |
+         cd tools/pythonpkg
+         rm -rf dist/duckdb-*.tar.gz
         
 
     #- name: Deploy
