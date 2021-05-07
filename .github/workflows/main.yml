@@ -124,9 +124,13 @@ jobs:
     - name: Remove dist for aarc64
       if: ${{ matrix.arch == 'aarch64' }}
       run: |
+        uname -m
         cd tools/pythonpkg
-        ls
+        echo "########################## ls duckdb_tarball#####################"
+        ls duckdb_tarball
+        echo "#################### deleting dist ######################"
         rm -rf dist/duckdb-*.tar.gz
+        echo "############ ls dist #########################"
         ls dist
         
 
