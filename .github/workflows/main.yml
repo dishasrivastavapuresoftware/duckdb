@@ -129,7 +129,7 @@ jobs:
         echo "########################## ls duckdb_tarball#####################"
         ls duckdb_tarball
         echo "#################### deleting dist ######################"
-        rm -rf dist/duckdb-*.tar.gz
+        rm dist/duckdb-*.tar.gz
         echo "############ ls dist #########################"
         ls dist
         
