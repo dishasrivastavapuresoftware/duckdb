@@ -125,7 +125,7 @@ jobs:
       if: ${{ matrix.arch == 'aarch64' }}
       run: |
         uname -m
-        #cd tools/pythonpkg
+        cd tools/pythonpkg
         echo "########################## ls duckdb_tarball#####################"
         #ls duckdb_tarball
         echo "#################### deleting dist ######################"
